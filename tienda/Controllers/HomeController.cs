@@ -18,8 +18,22 @@ namespace tienda.Controllers
             _logger = logger;
         }
 
+        //Pre
         public IActionResult Index()
         {
+            
+            return View();
+        }
+        //Post
+        [HttpPost]
+        public ActionResult Index(Nodo a, int codigo, string nombre, int precio){
+            a.Codigo = codigo;
+            a.Nombre = nombre;
+            a.Precio = precio;
+
+            ViewBag.Codigo = a.Codigo;
+            ViewBag.Nombre = a.Nombre;
+            ViewBag.Precio = a.Precio;
             return View();
         }
 

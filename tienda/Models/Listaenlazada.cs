@@ -40,23 +40,31 @@ namespace tienda.Models
         Console.WriteLine();
     }
     // Adiciona nuevos elementos (siempre al final L.E.S)
-    public void Adicionar(int pCodigo, int pTipo){
-        //referencia al inicio
-        referencia = cabecera;
-        //recorrer hasta encontrar el final
-        while (referencia.Siguiente != null)
+    public void Adicionar(int pCodigo, int pTipo)
+    {
+        if (pCodigo < 1 || pCodigo > 9)
         {
-            referencia = referencia.Siguiente;
+            return;
         }
-        //crear un nuevo nodo
-        Nodo tpm = new Nodo();
-        //insertar Codigo
-        tpm.Codigo = pCodigo;
-        tpm.Tipo = pTipo;
-        tpm.Nombre = Nombre(pTipo, pCodigo);
-        tpm.Precio = Precio(pTipo, pCodigo);
-        // enlazar
-        referencia.Siguiente = tpm;
+        else
+        {
+            //referencia al inicio
+            referencia = cabecera;
+            //recorrer hasta encontrar el final
+            while (referencia.Siguiente != null)
+            {
+                referencia = referencia.Siguiente;
+            }
+            //crear un nuevo nodo
+            Nodo tpm = new Nodo();
+            //insertar Codigo
+            tpm.Codigo = pCodigo;
+            tpm.Tipo = pTipo;
+            tpm.Nombre = Nombre(pTipo, pCodigo);
+            tpm.Precio = Precio(pTipo, pCodigo);
+            // enlazar
+            referencia.Siguiente = tpm;
+        }
     }
     // vacia la lista
     public void Vaciar(){

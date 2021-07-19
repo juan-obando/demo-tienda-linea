@@ -13,6 +13,8 @@ namespace tienda.Controllers
     {
         private static ListaEnlazada camisas = new ListaEnlazada();
         private static ListaEnlazada pantalones = new ListaEnlazada();
+        private static Vector zapatos = new Vector();
+        private static Vector sombreros = new Vector();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -36,9 +38,20 @@ namespace tienda.Controllers
                 camisas.Adicionar(codigo, tipo);
                 camisas.Apuntador();
                 return View();
+
                 case 2:
                 pantalones.Adicionar(codigo, tipo);
                 pantalones.Apuntador();
+                return View();
+
+                case 3:
+                zapatos.Adicionar(codigo, tipo);
+                zapatos.PrintArray();
+                return View();
+
+                case 4:
+                sombreros.Adicionar(codigo, tipo);
+                sombreros.PrintArray();
                 return View();
 
                 default:

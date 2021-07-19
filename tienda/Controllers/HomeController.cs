@@ -11,6 +11,8 @@ namespace tienda.Controllers
 {
     public class HomeController : Controller
     {
+        private static ListaEnlazada camisas = new ListaEnlazada();
+        private static ListaEnlazada pantalones = new ListaEnlazada();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -26,14 +28,38 @@ namespace tienda.Controllers
         }
         //Post
         [HttpPost]
-        public ActionResult Index(Nodo a, int codigo, string nombre, int precio){
-            a.Codigo = codigo;
-            a.Nombre = nombre;
-            a.Precio = precio;
+        public ActionResult Index(int tipo, int codigo)
+        {
+            switch (tipo)
+            {
+                case 1:
+                camisas.Adicionar(codigo, tipo);
+                camisas.Apuntador();
+                return View();
+                case 2:
+                pantalones.Adicionar(codigo, tipo);
+                pantalones.Apuntador();
+                return View();
 
-            ViewBag.Codigo = a.Codigo;
-            ViewBag.Nombre = a.Nombre;
-            ViewBag.Precio = a.Precio;
+                default:
+                return View();
+            }
+        }
+
+        public IActionResult Camisas()
+        {
+            return View();
+        }
+        public IActionResult Pantalones()
+        {
+            return View();
+        }
+        public IActionResult Zapatos()
+        {
+            return View();
+        }
+        public IActionResult Sombreros()
+        {
             return View();
         }
 

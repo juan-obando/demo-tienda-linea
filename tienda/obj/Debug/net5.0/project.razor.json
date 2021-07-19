@@ -15634,6 +15634,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\Home\\Zapatos.cshtml",
+      "TargetPath": "Views\\Home\\Zapatos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15659,8 +15664,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\Home\\Pantalones.cshtml",
+      "TargetPath": "Views\\Home\\Pantalones.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\Home\\Sombreros.cshtml",
+      "TargetPath": "Views\\Home\\Sombreros.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\Home\\Camisas.cshtml",
+      "TargetPath": "Views\\Home\\Camisas.cshtml",
       "FileKind": "mvc"
     }
   ],

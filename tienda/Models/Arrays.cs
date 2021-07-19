@@ -3,9 +3,9 @@ namespace tienda.Models
 {
     public class Vector
     {
-        public int[] producto = new int[100];
-        public string[] nombre = new string[100];
-        public int[] precio = new int [100];
+        public int[] producto = new int[10];
+        public string[] nombre = new string[10];
+        public int[] precio = new int [10];
         int Tipo = 0;
         int Ventas = 0;
 

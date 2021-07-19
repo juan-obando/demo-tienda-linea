@@ -3,7 +3,7 @@ namespace tienda.Models
 {
     public class ListaEnlazada{    
     //ancla, cabecera, head
-    private Nodo cabecera;
+    public Nodo cabecera;
     // variable de referencia ayuda a trabajar con la lista
     private Nodo referencia;
     private Nodo referencia2;
@@ -227,7 +227,7 @@ namespace tienda.Models
         }
         return contador;
     }
-    private string Nombre(int pTipo,int pCodigo){
+    public string Nombre(int pTipo,int pCodigo){
         if (pTipo == 1)
         {
             switch (pCodigo)
@@ -299,7 +299,7 @@ namespace tienda.Models
             }
         } 
     }
-    private int Precio(int pTipo,int pCodigo){
+    public int Precio(int pTipo,int pCodigo){
         if (pTipo == 1)
         {
             switch (pCodigo)

@@ -1,19 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-@model tienda.Models.Nodo
 <div class="text-center">
-    <h1 class="display-4">Agregar producto</h1>
-    <h1>@ViewData["Message"] </h1>
-    <h1>@ViewBag.Mensaje </h1>
+    <h1 class="display-4">¡Bienvenido a la tienda!</h1>
     <form method="post">
         <div>
+            <p> </p>
             <input type="text" class="form-control" name="tipo" placeholder="Introducir el tipo de producto: (1. Camisa 2. Pantalones 3. Zapatos 4. Sombreros)"/>
+            <p> </p>
             <input type="text" class="form-control" name="codigo" placeholder="Codigo del producto: (del 1 al 9)"/>
+            <p> </p>
         </div>
         <div>
-            <button type="submit" class="btn-group">Enviar informacion</button>
+            <button type="submit" class="btn-group">Agregar producto</button>
         </div>
     </form>
 

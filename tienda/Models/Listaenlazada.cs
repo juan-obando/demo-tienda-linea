@@ -7,15 +7,16 @@ namespace tienda.Models
     // variable de referencia ayuda a trabajar con la lista
     private Nodo referencia;
     private Nodo referencia2;
+    private Nodo referencia3;
     private Nodo referenciaIndice;
     private Nodo referenciaBuscar;
-    private Nodo referenciaBuscarCodigo;
 
-    private Nodo referenciaInsertar;
+    private Nodo referenciaModificar;
 
     private Nodo refBuscarIndice;
 
     private Nodo refIndexer;
+    int tipo = 0;
 
     public ListaEnlazada(){
         // instancia
@@ -40,7 +41,7 @@ namespace tienda.Models
         Console.WriteLine();
     }
     // Adiciona nuevos elementos (siempre al final L.E.S)
-    public void Adicionar(int pCodigo, int pTipo)
+    public void Adicionar(int pCodigo)
     {
         if (pCodigo < 1 || pCodigo > 9 || Cantidad() == 10)
         {
@@ -59,9 +60,9 @@ namespace tienda.Models
             Nodo tpm = new Nodo();
             //insertar Codigo
             tpm.Codigo = pCodigo;
-            tpm.Tipo = pTipo;
-            tpm.Nombre = Nombre(pTipo, pCodigo);
-            tpm.Precio = Precio(pTipo, pCodigo);
+            tpm.Tipo = tipo;
+            tpm.Nombre = Nombre(pCodigo);
+            tpm.Precio = Precio(pCodigo);
             // enlazar
             referencia.Siguiente = tpm;
         }
@@ -80,24 +81,45 @@ namespace tienda.Models
     }
 
     // Regresar el nodo con el primer Codigo que encuentre
-    public Nodo Buscar(int pCodigo){
+    public Nodo Buscar(int pPos){
         if (EstaVacia() == true)
         {
             return null;
         }
-
-
+        int indice = 0;
         referencia2 = cabecera;
         while (referencia2.Siguiente != null)
         {
             referencia2 = referencia2.Siguiente;
+            
             //si lo encuentro = lo devuelvo
-            if (referencia2.Codigo == pCodigo)
+            if (indice == pPos)
             {
                 return referencia2;
             }
+            indice++;
         }
         return null;
+    }
+    public int BuscarPosicion(int pCodigo){
+        if (EstaVacia() == true)
+        {
+            return -1;
+        }
+        int indice = 0;
+        referencia3 = cabecera;
+        while (referencia3.Siguiente != null)
+        {
+            referencia3 = referencia3.Siguiente;
+            
+            //si lo encuentro = lo devuelvo
+            if (referencia3.Codigo == pCodigo)
+            {
+                return indice;
+            }
+            indice++;
+        }
+        return -1;
     }
     
     // Regresar el nodo cuando lo encuentra
@@ -119,35 +141,25 @@ namespace tienda.Models
         return -1;
     }
 
-    public Nodo BuscarAnterior(int pCodigo){
+    public Nodo BuscarAnterior(int pPos){
         referenciaBuscar = cabecera;
-        while (referenciaBuscar.Siguiente != null && referenciaBuscar.Siguiente.Codigo != pCodigo)
+        int indice = 0;
+        while (referenciaBuscar.Siguiente != null && indice != pPos)
         {
             referenciaBuscar = referenciaBuscar.Siguiente;
+            indice++;
         }
 
         return referenciaBuscar;
     }
-
-    public int BuscarCodigoAnterior(int pCodigo){
-        referenciaBuscarCodigo = cabecera;
-        while (referenciaBuscarCodigo.Siguiente != null && referenciaBuscarCodigo.Siguiente.Codigo != pCodigo)
-        {
-            referenciaBuscarCodigo = referenciaBuscarCodigo.Siguiente;
-        }
-
-        return referenciaBuscarCodigo.Codigo;
-    }
-    
-
-    public void Borrar(int pCodigo){
+    public void Borrar(int pPos){
         //Verificar que hayan Codigos en la lista
         if (EstaVacia() == true){
             return;
         }
         //Buscar los nodos con los que se van a trabajar
-        Nodo nodoAnterior = BuscarAnterior(pCodigo);
-        Nodo nodoEncontrado = Buscar(pCodigo);
+        Nodo nodoAnterior = BuscarAnterior(pPos);
+        Nodo nodoEncontrado = Buscar(pPos);
 
         //Si no hay nodos encontrados... salimos
         if (nodoEncontrado == null){
@@ -160,30 +172,16 @@ namespace tienda.Models
         nodoEncontrado.Siguiente = null;
     }
 
-    public void Insertar(int pDonde, int pCodigo){
+    public void Modificar(int pDonde, int pCodigo,int pTipo){
         //Se encuentra la posicion en la que se insertará
-        referenciaInsertar = Buscar(pDonde);
+        referenciaModificar = Buscar(pDonde);
         //Si no hay nodos, se sale
-        if(referenciaInsertar == null){
+        if(referenciaModificar == null){
             return;
         }
-        //Se crea un nodo temporal
-        Nodo añadir = new Nodo();
-        añadir.Codigo = pCodigo;
-        //Se le añade el nodo temporal a la lista
-        añadir.Siguiente = referenciaInsertar.Siguiente;
-        //Se conecta el nodo encontrado al temporal
-        referenciaInsertar.Siguiente = añadir;
-    }
-    public void InsertarInicio(int pCodigo){
-        //Se crea un nodo temporal
-        Nodo añadirInicio = new Nodo();
-        añadirInicio.Codigo = pCodigo;
-        //Se conecta la lista con el temporal
-        añadirInicio.Siguiente = cabecera.Siguiente;
-        //se conecta el nodo temporal al inicio
-        cabecera.Siguiente = añadirInicio;
-
+        referenciaModificar.Codigo = pCodigo;
+        referenciaModificar.Nombre = Nombre(pCodigo);
+        referenciaModificar.Precio = Precio(pCodigo);
     }
     //Obtener la referencia del nodo dado dando su indice
     public Nodo ObtenerPorIndice (int pIndice){
@@ -227,8 +225,8 @@ namespace tienda.Models
         }
         return contador;
     }
-    public string Nombre(int pTipo,int pCodigo){
-        if (pTipo == 1)
+    public string Nombre(int pCodigo){
+        if (tipo == 1)
         {
             switch (pCodigo)
             {
@@ -299,8 +297,9 @@ namespace tienda.Models
             }
         } 
     }
-    public int Precio(int pTipo,int pCodigo){
-        if (pTipo == 1)
+    public int Precio(int pCodigo)
+    {
+        if (tipo == 1)
         {
             switch (pCodigo)
             {
@@ -370,6 +369,10 @@ namespace tienda.Models
                 return 0;
             }
         } 
+    }
+    public void Tipo(int ptipo)
+    {
+        tipo = ptipo;
     }
 }
 

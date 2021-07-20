@@ -7,7 +7,6 @@ namespace tienda.Models
         public string[] nombre = new string[10];
         public int[] precio = new int [10];
         int Tipo = 0;
-        int Ventas = 0;
 
         private int indice = 0;
         public void Adicionar(int codigo, int tipo)
@@ -37,9 +36,22 @@ namespace tienda.Models
             else
             {
                 producto[pos] = codigo;
+                nombre[pos] = Nombre(codigo);
+                precio[pos] = Precio(codigo);
             }
         }
-        public void Borrar (int pos, int codigo)
+        public int BuscarPosicion(int codigo)
+        {
+            for (int i = 0; i < producto.Length; i++)
+            {
+                if (producto[i] == codigo)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public void Borrar (int pos)
         {
           if (pos >= Largo(producto) || pos < 0 || producto[pos] == 0)
             {
@@ -49,27 +61,39 @@ namespace tienda.Models
             {
                 if (pos == Largo(producto) - 1)
                 {
-                    producto[pos] = 0;
+                    producto[pos] = 10;
                     nombre[pos] = "";
-                    Ventas = Ventas + precio[pos];
-                    precio[pos] = 0;
+                    precio[pos] = 200000;
                     indice--;
                 }
                 else
                 {
-                    Ventas = Ventas + precio[pos];
                     for (int i = pos; i < Largo(producto) - 1; i++)
                     {
                         producto[pos] = producto[pos + 1];
                         nombre[pos] = nombre[pos + 1];
                         precio[pos] = precio[pos + 1];
-                        producto[pos + 1] = 0;
+                        producto[pos + 1] = 10;
                         nombre[pos + 1] = "";
-                        precio[pos + 1] = 0;
+                        precio[pos + 1] = 200000;
                     }
                     indice--;
                 }
             }  
+        }
+        public void Llenar()
+        {
+            for (int i = 0; i < producto.Length; i++)
+            {
+                producto[i] = 10;
+            }
+        }
+        public void Llenarprecio()
+        {
+            for (int i = 0; i < producto.Length; i++)
+            {
+                precio[i] = 200000;
+            }
         }
         public void PrintArray()
         {

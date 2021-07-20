@@ -74,3 +74,52 @@
         </tr>       
     </table>
 </body>
+<div class="text-center">
+    <form method="post">
+        <p> </p>
+        <div>
+            <button type="submit" value="Ordenar1" name="ordenar1" class="btn-group">Ordenar por codigo</button>
+            <button type="submit" value="Ordenar2" name="ordenar2" class="btn-group">Ordenar por precio</button>
+        </div>        
+    </form>
+</div>
+<div class="text-center">
+    <form method="post">
+        <div>
+            <p> </p>
+            <input type="text" class="form-control" name="pos" placeholder="Introducir la posicion del objeto a comprar"/>
+        </div>
+            <p> </p>
+        <div>
+            <button type="submit" value="Comprar" name="comprar" class="btn-group">Comprar</button>
+        </div>        
+    </form>
+</div>
+<div class="text-center">
+    <form method="post">
+        <div>
+            <p> </p>
+            <p> </p>
+            <input type="text" class="form-control" name="pos2" placeholder="Introducir la posicion del objeto a editar"/>
+            <p> </p>
+            <input type="text" class="form-control" name="codigo" placeholder="Introducir el codigo del objeto por el que lo quiere cambiar"/>
+            </div>
+            <p> </p>
+            <div>
+            <button type="submit" value = "Editar" name="editar" class="btn-group">Editar</button>
+        </div>        
+    </form>
+</div>
+<div class="text-center">
+    <form method="post">
+        <div>
+            <p> </p>
+            <p>@ViewBag.Buscar @ViewBag.Buscar2</p>
+            <input type="text" class="form-control" name="codigo2" placeholder="Introducir el codigo del objeto que quiere buscar"/>
+        </div>
+            <p> </p>
+        <div>
+            <button type="submit" value="Buscar" name="buscar" class="btn-group">Buscar</button>
+        </div>        
+    </form>
+</div>

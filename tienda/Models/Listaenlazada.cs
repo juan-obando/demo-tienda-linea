@@ -42,7 +42,7 @@ namespace tienda.Models
     // Adiciona nuevos elementos (siempre al final L.E.S)
     public void Adicionar(int pCodigo, int pTipo)
     {
-        if (pCodigo < 1 || pCodigo > 9)
+        if (pCodigo < 1 || pCodigo > 9 || Cantidad() == 10)
         {
             return;
         }

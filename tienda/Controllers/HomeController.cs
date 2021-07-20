@@ -18,6 +18,7 @@ namespace tienda.Controllers
         private static OrdenamientosListas ord1 = new OrdenamientosListas();
         private static OrdenamientosArray ord2 = new OrdenamientosArray();
         private static int indice = 0;
+        private static Stopwatch sw = new Stopwatch();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -218,11 +219,23 @@ namespace tienda.Controllers
             }
             else if (ordenar1 == "Ordenar1")
             {
+                sw.Start();
                 camisas = ord1.MergeSort(camisas);
+                sw.Stop();
+                ViewBag.Tardo1 = "La lista se ordenó por codigo en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando MergeSort)";
+                sw.Reset();
             }
             else if (ordenar2 == "Ordenar2")
             {
+                sw.Start();
                 ord1.QuickSort(camisas, 0, camisas.Cantidad() - 1);
+                sw.Stop();
+                ViewBag.Tardo1 = "La lista se ordenó por precio (de menor a mayor) en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando QuickSort)";
+                sw.Reset();
             }
             else if (buscar == "Buscar")
             {
@@ -523,11 +536,23 @@ namespace tienda.Controllers
             }
             else if (ordenar1 == "Ordenar1")
             {
+                sw.Start();
                 pantalones = ord1.MergeSort(pantalones);
+                sw.Stop();
+                ViewBag.Tardo1 = "La lista se ordenó por codigo en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando MergeSort)";
+                sw.Reset();
             }
             else if (ordenar2 == "Ordenar2")
             {
+                sw.Start();
                 ord1.QuickSort(pantalones, 0, pantalones.Cantidad() - 1);
+                sw.Stop();
+                ViewBag.Tardo1 = "La lista se ordenó por precio (de menor a mayor) en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando QuickSort)";
+                sw.Reset();
             }
             else if (buscar == "Buscar")
             {
@@ -828,11 +853,23 @@ namespace tienda.Controllers
             }
             else if (ordenar1 == "Ordenar1")
             {
+                sw.Start();
                 ord2.BubbleSort(zapatos.producto, zapatos.nombre, zapatos.precio);
+                sw.Stop();
+                ViewBag.Tardo1 = "La lista se ordenó por codigo en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando BubbleSort)";
+                sw.Reset();
             }
             else if (ordenar2 == "Ordenar2")
             {
+                sw.Start();
                 ord2.InsertionSort(zapatos.precio, zapatos.nombre, zapatos.producto);
+                sw.Stop();
+                ViewBag.Tardo1 = "La lista se ordenó por precio (de menor a mayor) en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando InsertionSort)";
+                sw.Reset();
             }
             else if (buscar == "Buscar")
             {
@@ -1133,11 +1170,21 @@ namespace tienda.Controllers
             }
             else if (ordenar1 == "Ordenar1")
             {
+                sw.Start();
                 ord2.BubbleSort(sombreros.producto, sombreros.nombre, sombreros.precio);
+                ViewBag.Tardo1 = "La lista se ordenó por codigo en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando BubbleSort)";
+                sw.Reset();
             }
             else if (ordenar2 == "Ordenar2")
             {
+                sw.Start();
                 ord2.InsertionSort(sombreros.precio, sombreros.nombre, sombreros.producto);
+                ViewBag.Tardo1 = "La lista se ordenó por precio (de menor a mayor) en ";
+                ViewBag.Tiempo1 = sw.ElapsedTicks;
+                ViewBag.Mensaje1 = " ticks (usando InsertionSort)";
+                sw.Reset();
             }
             else if (buscar == "Buscar")
             {

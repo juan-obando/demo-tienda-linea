@@ -55,7 +55,6 @@ namespace tienda.Models
             while (referenciaventas.Siguiente != null)
             {
                 total = total + referenciaventas.Siguiente.Precio;
-                Console.WriteLine(total);
                 referenciaventas = referenciaventas.Siguiente;
             }
             return total;

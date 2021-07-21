@@ -529,7 +529,7 @@ namespace tienda.Controllers
         {
             if (comprar == "Comprar")
             {
-                ventas.Push(pantalones.Borrar(pos -1), 2);
+                ventas.Push(pantalones.Borrar(pos - 1), 2);
             }
             else if (editar == "Editar")
             {
@@ -713,129 +713,130 @@ namespace tienda.Controllers
                     ViewBag.Codigo1 = "";
                     ViewBag.Nombre1 = "";
                     ViewBag.Precio1 = "";
+                    indice++;
                 }else
                 {
-                    ViewBag.Codigo1 = zapatos.producto[0];
-                    ViewBag.Nombre1 = zapatos.nombre[0];
-                    ViewBag.Precio1 = zapatos.precio[0];
+                    ViewBag.Codigo1 = zapatos.producto[indice];
+                    ViewBag.Nombre1 = zapatos.nombre[indice];
+                    ViewBag.Precio1 = zapatos.precio[indice];
                     indice++;
-                    if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                    {
-                        ViewBag.Codigo2 = "";
-                        ViewBag.Nombre2 = "";
-                        ViewBag.Precio2 = "";
-                    }
-                    else
-                    {
-                        ViewBag.Codigo2 = zapatos.producto[1];
-                        ViewBag.Nombre2 = zapatos.nombre[1];
-                        ViewBag.Precio2 = zapatos.precio[1];
-                        indice++;
-                        if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                        {
-                            ViewBag.Codigo3 = "";
-                            ViewBag.Nombre3 = "";
-                            ViewBag.Precio3 = "";
-                        }
-                        else
-                        {
-                            ViewBag.Codigo3 = zapatos.producto[2];
-                            ViewBag.Nombre3 = zapatos.nombre[2];
-                            ViewBag.Precio3 = zapatos.precio[2];
-                            indice++;
-                            if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                            {
-                                ViewBag.Codigo4 = "";
-                                ViewBag.Nombre4 = "";
-                                ViewBag.Precio4 = "";
-                            }
-                            else
-                            {
-                                ViewBag.Codigo4 = zapatos.producto[3];
-                                ViewBag.Nombre4 = zapatos.nombre[3];
-                                ViewBag.Precio4 = zapatos.precio[3];
-                                indice++;
-                                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                {
-                                    ViewBag.Codigo5 = "";
-                                    ViewBag.Nombre5 = "";
-                                    ViewBag.Precio5 = "";
-                                }
-                                else
-                                {
-                                    ViewBag.Codigo5 = zapatos.producto[4];
-                                    ViewBag.Nombre5 = zapatos.nombre[4];
-                                    ViewBag.Precio5 = zapatos.precio[4];
-                                    indice++;
-                                    if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                    {
-                                        ViewBag.Codigo6 = "";
-                                        ViewBag.Nombre6 = "";
-                                        ViewBag.Precio6 = "";
-                                    }
-                                    else
-                                    {
-                                        ViewBag.Codigo6 = zapatos.producto[5];
-                                        ViewBag.Nombre6 = zapatos.nombre[5];
-                                        ViewBag.Precio6 = zapatos.precio[5];
-                                        indice++;
-                                        if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                        {
-                                            ViewBag.Codigo7 = "";
-                                            ViewBag.Nombre7 = "";
-                                            ViewBag.Precio7 = "";
-                                        }
-                                        else
-                                        {
-                                            ViewBag.Codigo7 = zapatos.producto[6];
-                                            ViewBag.Nombre7 = zapatos.nombre[6];
-                                            ViewBag.Precio7 = zapatos.precio[6];
-                                            indice++;
-                                            if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                            {
-                                                ViewBag.Codigo8 = "";
-                                                ViewBag.Nombre8 = "";
-                                                ViewBag.Precio8 = "";
-                                            }
-                                            else
-                                            {
-                                                ViewBag.Codigo8 = zapatos.producto[7];
-                                                ViewBag.Nombre8 = zapatos.nombre[7];
-                                                ViewBag.Precio8 = zapatos.precio[7];
-                                                indice++;
-                                                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                                {
-                                                    ViewBag.Codigo9 = "";
-                                                    ViewBag.Nombre9 = "";
-                                                    ViewBag.Precio9 = "";
-                                                }
-                                                else
-                                                {
-                                                    ViewBag.Codigo9 = zapatos.producto[8];
-                                                    ViewBag.Nombre9 = zapatos.nombre[8];
-                                                    ViewBag.Precio9 = zapatos.precio[8];
-                                                    indice++;
-                                                    if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                                    {
-                                                        ViewBag.Codigo10 = "";
-                                                        ViewBag.Nombre10 = "";
-                                                        ViewBag.Precio10 = "";
-                                                    }
-                                                    else
-                                                    {
-                                                        ViewBag.Codigo10 = zapatos.producto[9];
-                                                        ViewBag.Nombre10 = zapatos.nombre[9];
-                                                        ViewBag.Precio10 = zapatos.precio[9];
-                                                        
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }    
-                        }
-                    }
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo2 = "";
+                    ViewBag.Nombre2 = "";
+                    ViewBag.Precio2 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo2 = zapatos.producto[indice];
+                    ViewBag.Nombre2 = zapatos.nombre[indice];
+                    ViewBag.Precio2 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo3 = "";
+                    ViewBag.Nombre3 = "";
+                    ViewBag.Precio3 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo3 = zapatos.producto[indice];
+                    ViewBag.Nombre3 = zapatos.nombre[indice];
+                    ViewBag.Precio3 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo4 = "";
+                    ViewBag.Nombre4 = "";
+                    ViewBag.Precio4 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo4 = zapatos.producto[indice];
+                    ViewBag.Nombre4 = zapatos.nombre[indice];
+                    ViewBag.Precio4 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo5 = "";
+                    ViewBag.Nombre5 = "";
+                    ViewBag.Precio5 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo5 = zapatos.producto[indice];
+                    ViewBag.Nombre5 = zapatos.nombre[indice];
+                    ViewBag.Precio5 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo6 = "";
+                    ViewBag.Nombre6 = "";
+                    ViewBag.Precio6 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo6 = zapatos.producto[indice];
+                    ViewBag.Nombre6 = zapatos.nombre[indice];
+                    ViewBag.Precio6 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo7 = "";
+                    ViewBag.Nombre7 = "";
+                    ViewBag.Precio7 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo7 = zapatos.producto[indice];
+                    ViewBag.Nombre7 = zapatos.nombre[indice];
+                    ViewBag.Precio7 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo8 = "";
+                    ViewBag.Nombre8 = "";
+                    ViewBag.Precio8 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo8 = zapatos.producto[indice];
+                    ViewBag.Nombre8 = zapatos.nombre[indice];
+                    ViewBag.Precio8 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo9 = "";
+                    ViewBag.Nombre9 = "";
+                    ViewBag.Precio9 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo9 = zapatos.producto[indice];
+                    ViewBag.Nombre9 = zapatos.nombre[indice];
+                    ViewBag.Precio9 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo10 = "";
+                    ViewBag.Nombre10 = "";
+                    ViewBag.Precio10 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo10 = zapatos.producto[indice];
+                    ViewBag.Nombre10 = zapatos.nombre[indice];
+                    ViewBag.Precio10 = zapatos.precio[indice];
+                    indice++;
                 }
             #endregion            
             return View();
@@ -846,7 +847,9 @@ namespace tienda.Controllers
         {
             if (comprar == "Comprar")
             {
-                ventas.Push(zapatos.Borrar(pos -1), 3);
+                ventas.Push(zapatos.producto[pos -1], 3);
+                zapatos.Borrar(pos -1);
+                
             }
             else if (editar == "Editar")
             {
@@ -894,130 +897,131 @@ namespace tienda.Controllers
                     ViewBag.Codigo1 = "";
                     ViewBag.Nombre1 = "";
                     ViewBag.Precio1 = "";
+                    indice++;
                 }else
                 {
-                    ViewBag.Codigo1 = zapatos.producto[0];
-                    ViewBag.Nombre1 = zapatos.nombre[0];
-                    ViewBag.Precio1 = zapatos.precio[0];
+                    ViewBag.Codigo1 = zapatos.producto[indice];
+                    ViewBag.Nombre1 = zapatos.nombre[indice];
+                    ViewBag.Precio1 = zapatos.precio[indice];
                     indice++;
-                    if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                    {
-                        ViewBag.Codigo2 = "";
-                        ViewBag.Nombre2 = "";
-                        ViewBag.Precio2 = "";
-                    }
-                    else
-                    {
-                        ViewBag.Codigo2 = zapatos.producto[1];
-                        ViewBag.Nombre2 = zapatos.nombre[1];
-                        ViewBag.Precio2 = zapatos.precio[1];
-                        indice++;
-                        if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                        {
-                            ViewBag.Codigo3 = "";
-                            ViewBag.Nombre3 = "";
-                            ViewBag.Precio3 = "";
-                        }
-                        else
-                        {
-                            ViewBag.Codigo3 = zapatos.producto[2];
-                            ViewBag.Nombre3 = zapatos.nombre[2];
-                            ViewBag.Precio3 = zapatos.precio[2];
-                            indice++;
-                            if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                            {
-                                ViewBag.Codigo4 = "";
-                                ViewBag.Nombre4 = "";
-                                ViewBag.Precio4 = "";
-                            }
-                            else
-                            {
-                                ViewBag.Codigo4 = zapatos.producto[3];
-                                ViewBag.Nombre4 = zapatos.nombre[3];
-                                ViewBag.Precio4 = zapatos.precio[3];
-                                indice++;
-                                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                {
-                                    ViewBag.Codigo5 = "";
-                                    ViewBag.Nombre5 = "";
-                                    ViewBag.Precio5 = "";
-                                }
-                                else
-                                {
-                                    ViewBag.Codigo5 = zapatos.producto[4];
-                                    ViewBag.Nombre5 = zapatos.nombre[4];
-                                    ViewBag.Precio5 = zapatos.precio[4];
-                                    indice++;
-                                    if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                    {
-                                        ViewBag.Codigo6 = "";
-                                        ViewBag.Nombre6 = "";
-                                        ViewBag.Precio6 = "";
-                                    }
-                                    else
-                                    {
-                                        ViewBag.Codigo6 = zapatos.producto[5];
-                                        ViewBag.Nombre6 = zapatos.nombre[5];
-                                        ViewBag.Precio6 = zapatos.precio[5];
-                                        indice++;
-                                        if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                        {
-                                            ViewBag.Codigo7 = "";
-                                            ViewBag.Nombre7 = "";
-                                            ViewBag.Precio7 = "";
-                                        }
-                                        else
-                                        {
-                                            ViewBag.Codigo7 = zapatos.producto[6];
-                                            ViewBag.Nombre7 = zapatos.nombre[6];
-                                            ViewBag.Precio7 = zapatos.precio[6];
-                                            indice++;
-                                            if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                            {
-                                                ViewBag.Codigo8 = "";
-                                                ViewBag.Nombre8 = "";
-                                                ViewBag.Precio8 = "";
-                                            }
-                                            else
-                                            {
-                                                ViewBag.Codigo8 = zapatos.producto[7];
-                                                ViewBag.Nombre8 = zapatos.nombre[7];
-                                                ViewBag.Precio8 = zapatos.precio[7];
-                                                indice++;
-                                                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                                {
-                                                    ViewBag.Codigo9 = "";
-                                                    ViewBag.Nombre9 = "";
-                                                    ViewBag.Precio9 = "";
-                                                }
-                                                else
-                                                {
-                                                    ViewBag.Codigo9 = zapatos.producto[8];
-                                                    ViewBag.Nombre9 = zapatos.nombre[8];
-                                                    ViewBag.Precio9 = zapatos.precio[8];
-                                                    indice++;
-                                                    if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
-                                                    {
-                                                        ViewBag.Codigo10 = "";
-                                                        ViewBag.Nombre10 = "";
-                                                        ViewBag.Precio10 = "";
-                                                    }
-                                                    else
-                                                    {
-                                                        ViewBag.Codigo10 = zapatos.producto[9];
-                                                        ViewBag.Nombre10 = zapatos.nombre[9];
-                                                        ViewBag.Precio10 = zapatos.precio[9];
-                                                        
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }    
-                        }
-                    }
-                } 
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo2 = "";
+                    ViewBag.Nombre2 = "";
+                    ViewBag.Precio2 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo2 = zapatos.producto[indice];
+                    ViewBag.Nombre2 = zapatos.nombre[indice];
+                    ViewBag.Precio2 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo3 = "";
+                    ViewBag.Nombre3 = "";
+                    ViewBag.Precio3 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo3 = zapatos.producto[indice];
+                    ViewBag.Nombre3 = zapatos.nombre[indice];
+                    ViewBag.Precio3 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo4 = "";
+                    ViewBag.Nombre4 = "";
+                    ViewBag.Precio4 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo4 = zapatos.producto[indice];
+                    ViewBag.Nombre4 = zapatos.nombre[indice];
+                    ViewBag.Precio4 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo5 = "";
+                    ViewBag.Nombre5 = "";
+                    ViewBag.Precio5 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo5 = zapatos.producto[indice];
+                    ViewBag.Nombre5 = zapatos.nombre[indice];
+                    ViewBag.Precio5 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo6 = "";
+                    ViewBag.Nombre6 = "";
+                    ViewBag.Precio6 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo6 = zapatos.producto[indice];
+                    ViewBag.Nombre6 = zapatos.nombre[indice];
+                    ViewBag.Precio6 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo7 = "";
+                    ViewBag.Nombre7 = "";
+                    ViewBag.Precio7 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo7 = zapatos.producto[indice];
+                    ViewBag.Nombre7 = zapatos.nombre[indice];
+                    ViewBag.Precio7 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo8 = "";
+                    ViewBag.Nombre8 = "";
+                    ViewBag.Precio8 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo8 = zapatos.producto[indice];
+                    ViewBag.Nombre8 = zapatos.nombre[indice];
+                    ViewBag.Precio8 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo9 = "";
+                    ViewBag.Nombre9 = "";
+                    ViewBag.Precio9 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo9 = zapatos.producto[indice];
+                    ViewBag.Nombre9 = zapatos.nombre[indice];
+                    ViewBag.Precio9 = zapatos.precio[indice];
+                    indice++;
+                }
+                if (zapatos.producto[indice] < 1 || zapatos.producto[indice] > 9)
+                {
+                    ViewBag.Codigo10 = "";
+                    ViewBag.Nombre10 = "";
+                    ViewBag.Precio10 = "";
+                    indice++;
+                }else
+                {
+                    ViewBag.Codigo10 = zapatos.producto[indice];
+                    ViewBag.Nombre10 = zapatos.nombre[indice];
+                    ViewBag.Precio10 = zapatos.precio[indice];
+                    indice++;
+                }
             #endregion                      
             return View();
         }
@@ -1163,7 +1167,8 @@ namespace tienda.Controllers
         {
             if (comprar == "Comprar")
             {   
-                ventas.Push(sombreros.Borrar(pos -1), 4);
+                ventas.Push(sombreros.producto[pos - 1], 4);
+                sombreros.Borrar(pos -1);
             }
             else if (editar == "Editar")
             {

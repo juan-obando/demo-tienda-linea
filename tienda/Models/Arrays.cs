@@ -51,12 +51,12 @@ namespace tienda.Models
             }
             return -1;
         }
-        public int Borrar (int pos)
+        public void Borrar (int pos)
         {
             int codigo = producto[pos];
-          if (pos >= Largo(producto) || pos < 0 || producto[pos] == 0)
+          if (pos >= Largo(producto) || pos < 0 || producto[pos] == 10)
             {
-                return 0;
+                return;
             }
             else
             {
@@ -71,17 +71,16 @@ namespace tienda.Models
                 {
                     for (int i = pos; i < Largo(producto) - 1; i++)
                     {
-                        producto[pos] = producto[pos + 1];
-                        nombre[pos] = nombre[pos + 1];
-                        precio[pos] = precio[pos + 1];
-                        producto[pos + 1] = 10;
-                        nombre[pos + 1] = "";
-                        precio[pos + 1] = 200000;
+                        producto[i] = producto[i + 1];
+                        nombre[i] = nombre[i + 1];
+                        precio[i] = precio[i + 1];
+                        producto[i + 1] = 10;
+                        nombre[i + 1] = "";
+                        precio[i + 1] = 200000;
                     }
                     indice--;
                 }
-            }
-            return codigo;  
+            } 
         }
         public void Llenar()
         {

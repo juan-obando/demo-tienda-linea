@@ -84,3 +84,4 @@ C:\Users\Drago\Desktop\Proyects\project\demo-tienda-linea\tienda\obj\Debug\net5.
 C:\Users\Drago\Desktop\Proyects\project\demo-tienda-linea\tienda\obj\Debug\net5.0\Razor\Views\Home\Pantalones.cshtml.g.cs
 C:\Users\Drago\Desktop\Proyects\project\demo-tienda-linea\tienda\obj\Debug\net5.0\Razor\Views\Home\Sombreros.cshtml.g.cs
 C:\Users\Drago\Desktop\Proyects\project\demo-tienda-linea\tienda\obj\Debug\net5.0\Razor\Views\Home\Zapatos.cshtml.g.cs
+C:\Users\Drago\Desktop\Proyects\project\demo-tienda-linea\tienda\obj\Debug\net5.0\Razor\Views\Home\Ventas.cshtml.g.cs

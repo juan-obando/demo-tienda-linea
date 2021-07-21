@@ -15624,6 +15624,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\Home\\Ventas.cshtml",
+      "TargetPath": "Views\\Home\\Ventas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Drago\\Desktop\\Proyects\\project\\demo-tienda-linea\\tienda\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"

@@ -29,7 +29,7 @@ namespace tienda.Models
         }
         public void Modificar(int pos, int codigo)
         {
-            if (pos >= Largo(producto) || pos < 0)
+            if (pos >= Largo(producto) || pos < 0 || codigo < 1 || codigo > 9)
             {
                 return;
             }
@@ -51,11 +51,12 @@ namespace tienda.Models
             }
             return -1;
         }
-        public void Borrar (int pos)
+        public int Borrar (int pos)
         {
+            int codigo = producto[pos];
           if (pos >= Largo(producto) || pos < 0 || producto[pos] == 0)
             {
-                return;
+                return 0;
             }
             else
             {
@@ -79,7 +80,8 @@ namespace tienda.Models
                     }
                     indice--;
                 }
-            }  
+            }
+            return codigo;  
         }
         public void Llenar()
         {

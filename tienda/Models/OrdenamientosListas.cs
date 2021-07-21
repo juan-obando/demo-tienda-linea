@@ -9,9 +9,10 @@ namespace tienda.Models
             lista[indice2] = tpm; //set
             // 2 4
         }
-        private static ListaEnlazada Merge(ListaEnlazada listaIzquierda, ListaEnlazada listaDerecha){
+        private static ListaEnlazada Merge(ListaEnlazada listaIzquierda, ListaEnlazada listaDerecha,int tipo){
             // Para que merge funcione la lista izq y la lista der deben estar ordenadas
             ListaEnlazada listaUnida = new ListaEnlazada();
+            listaUnida.Tipo(tipo);
             //indices de cada lista
             int indiceIzquierdo = 0;
             int indiceDerecho = 0;
@@ -48,7 +49,7 @@ namespace tienda.Models
             // regresa la lista unida como resultado de merge
             return listaUnida;
         }
-        public ListaEnlazada MergeSort(ListaEnlazada pLista){
+        public ListaEnlazada MergeSort(ListaEnlazada pLista, int tipo){
             //Cantidad de elementos de la lista
             int cantidad = pLista.Cantidad();
             int n = 0; //Variable de apoyo
@@ -61,7 +62,9 @@ namespace tienda.Models
             //Obtener la mitad
             int mitad = cantidad/2;
             ListaEnlazada Izquierda = new ListaEnlazada();
+            Izquierda.Tipo(tipo);
             ListaEnlazada Derecha = new ListaEnlazada();
+            Derecha.Tipo(tipo);
             //adicionamos los elementos en la lista de la izquierda
             for(n=0;n<mitad;n++){
                 Izquierda.Adicionar(pLista[n]);
@@ -72,9 +75,9 @@ namespace tienda.Models
             }
             
             //Parte inductiva
-            ListaEnlazada tmpIzquierda = MergeSort(Izquierda);
-            ListaEnlazada tmpDerecha = MergeSort(Derecha);
-            ListaEnlazada ordenada = Merge(tmpIzquierda, tmpDerecha);
+            ListaEnlazada tmpIzquierda = MergeSort(Izquierda, tipo);
+            ListaEnlazada tmpDerecha = MergeSort(Derecha, tipo);
+            ListaEnlazada ordenada = Merge(tmpIzquierda, tmpDerecha, tipo);
 
             return ordenada;
         }

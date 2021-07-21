@@ -15,6 +15,7 @@ namespace tienda.Controllers
         private static ListaEnlazada pantalones = new ListaEnlazada();
         private static Vector zapatos = new Vector();
         private static Vector sombreros = new Vector();
+        private static Stacks ventas = new Stacks();
         private static OrdenamientosListas ord1 = new OrdenamientosListas();
         private static OrdenamientosArray ord2 = new OrdenamientosArray();
         private static int indice = 0;
@@ -211,7 +212,7 @@ namespace tienda.Controllers
         {
             if (comprar == "Comprar")
             {
-                camisas.Borrar(pos -1);
+                ventas.Push(camisas.Borrar(pos -1), 1);
             }
             else if (editar == "Editar")
             {
@@ -220,7 +221,7 @@ namespace tienda.Controllers
             else if (ordenar1 == "Ordenar1")
             {
                 sw.Start();
-                camisas = ord1.MergeSort(camisas);
+                camisas = ord1.MergeSort(camisas, 1);
                 sw.Stop();
                 ViewBag.Tardo1 = "La lista se ordenó por codigo en ";
                 ViewBag.Tiempo1 = sw.ElapsedTicks;
@@ -524,27 +525,27 @@ namespace tienda.Controllers
         }
         //Post
         [HttpPost]
-        public ActionResult Pantalones(string comprar, string editar, string ordenar1, string ordenar2,string buscar, int pos, int pos2, int codigo, int codigo2)
+        public ActionResult Pantalones(string comprar, string editar, string ordenar3, string ordenar4,string buscar, int pos, int pos2, int codigo, int codigo2)
         {
             if (comprar == "Comprar")
             {
-                camisas.Borrar(pos -1);
+                ventas.Push(pantalones.Borrar(pos -1), 2);
             }
             else if (editar == "Editar")
             {
                 camisas.Modificar(pos2 -1, codigo, 1);
             }
-            else if (ordenar1 == "Ordenar1")
+            else if (ordenar3 == "Ordenar3")
             {
                 sw.Start();
-                pantalones = ord1.MergeSort(pantalones);
+                pantalones = ord1.MergeSort(pantalones, 2);
                 sw.Stop();
                 ViewBag.Tardo1 = "La lista se ordenó por codigo en ";
                 ViewBag.Tiempo1 = sw.ElapsedTicks;
                 ViewBag.Mensaje1 = " ticks (usando MergeSort)";
                 sw.Reset();
             }
-            else if (ordenar2 == "Ordenar2")
+            else if (ordenar4 == "Ordenar4")
             {
                 sw.Start();
                 ord1.QuickSort(pantalones, 0, pantalones.Cantidad() - 1);
@@ -841,17 +842,17 @@ namespace tienda.Controllers
         }
         //Post
         [HttpPost]
-        public ActionResult Zapatos(string comprar, string editar, string ordenar1, string ordenar2,string buscar, int pos, int pos2, int codigo, int codigo2)
+        public ActionResult Zapatos(string comprar, string editar, string ordenar5, string ordenar6,string buscar, int pos, int pos2, int codigo, int codigo2)
         {
             if (comprar == "Comprar")
             {
-                zapatos.Borrar(pos -1);
+                ventas.Push(zapatos.Borrar(pos -1), 3);
             }
             else if (editar == "Editar")
             {
                 zapatos.Modificar(pos2 -1, codigo);
             }
-            else if (ordenar1 == "Ordenar1")
+            else if (ordenar5 == "Ordenar5")
             {
                 sw.Start();
                 ord2.BubbleSort(zapatos.producto, zapatos.nombre, zapatos.precio);
@@ -861,7 +862,7 @@ namespace tienda.Controllers
                 ViewBag.Mensaje1 = " ticks (usando BubbleSort)";
                 sw.Reset();
             }
-            else if (ordenar2 == "Ordenar2")
+            else if (ordenar6 == "Ordenar6")
             {
                 sw.Start();
                 ord2.InsertionSort(zapatos.precio, zapatos.nombre, zapatos.producto);
@@ -1158,17 +1159,17 @@ namespace tienda.Controllers
         }
         //Post
         [HttpPost]
-        public ActionResult Sombreros(string comprar, string editar, string ordenar1, string ordenar2,string buscar, int pos, int pos2, int codigo, int codigo2)
+        public ActionResult Sombreros(string comprar, string editar, string ordenar7, string ordenar8,string buscar, int pos, int pos2, int codigo, int codigo2)
         {
             if (comprar == "Comprar")
-            {
-                sombreros.Borrar(pos -1);
+            {   
+                ventas.Push(sombreros.Borrar(pos -1), 4);
             }
             else if (editar == "Editar")
             {
                 sombreros.Modificar(pos2 -1, codigo);
             }
-            else if (ordenar1 == "Ordenar1")
+            else if (ordenar7 == "Ordenar7")
             {
                 sw.Start();
                 ord2.BubbleSort(sombreros.producto, sombreros.nombre, sombreros.precio);
@@ -1177,7 +1178,7 @@ namespace tienda.Controllers
                 ViewBag.Mensaje1 = " ticks (usando BubbleSort)";
                 sw.Reset();
             }
-            else if (ordenar2 == "Ordenar2")
+            else if (ordenar8 == "Ordenar8")
             {
                 sw.Start();
                 ord2.InsertionSort(sombreros.precio, sombreros.nombre, sombreros.producto);
@@ -1334,6 +1335,12 @@ namespace tienda.Controllers
                 }
             #endregion                      
             return View();
+        }
+        public IActionResult Ventas()
+        {   ViewBag.Ventas = ventas.Ventas();
+            ViewBag.Ultima = ventas.UltimoNombre();
+            ViewBag.Precio = ventas.UltimoPrecio();
+            return View();           
         }
 
         public IActionResult Privacy()

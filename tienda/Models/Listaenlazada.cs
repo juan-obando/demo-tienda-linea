@@ -152,31 +152,35 @@ namespace tienda.Models
 
         return referenciaBuscar;
     }
-    public void Borrar(int pPos){
+    public int Borrar(int pPos){
+        
+        int codigo = 0;
         //Verificar que hayan Codigos en la lista
-        if (EstaVacia() == true){
-            return;
+        if (EstaVacia() == true || pPos > Cantidad() - 1){
+            return codigo;
         }
         //Buscar los nodos con los que se van a trabajar
         Nodo nodoAnterior = BuscarAnterior(pPos);
         Nodo nodoEncontrado = Buscar(pPos);
+        codigo = nodoEncontrado.Codigo;
 
         //Si no hay nodos encontrados... salimos
         if (nodoEncontrado == null){
-            return;
+            return codigo;
         }
 
         // Hacer el salto de nodo
         nodoAnterior.Siguiente = nodoEncontrado.Siguiente;
         //Quito el nodo de la lista (recolector de basura B) )
         nodoEncontrado.Siguiente = null;
+        return codigo;
     }
 
     public void Modificar(int pDonde, int pCodigo,int pTipo){
         //Se encuentra la posicion en la que se insertará
         referenciaModificar = Buscar(pDonde);
         //Si no hay nodos, se sale
-        if(referenciaModificar == null){
+        if(referenciaModificar == null || pCodigo > 9 || pCodigo < 1){
             return;
         }
         referenciaModificar.Codigo = pCodigo;
